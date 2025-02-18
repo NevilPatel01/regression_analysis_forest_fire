@@ -27,9 +27,12 @@ A comprehensive comparison of various regression models using k-fold cross-valid
 ```bash
 # Clone repository
 git clone https://github.com/NevilPatel01/regression_analysis_forest_fire.git
+```
 
 # Install requirements
+```bash
 pip install numpy scikit-learn
+```
 
 ## Usage 🚀
 1. Place your dataset.csv in the project root.
