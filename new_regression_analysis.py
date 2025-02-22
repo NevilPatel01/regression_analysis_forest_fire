@@ -25,17 +25,17 @@ from sklearn.pipeline import make_pipeline
 from sklearn.svm import SVR
 
 deg=2
-k=5
+k=3
 d=4
 estimators=50
 
 models = {
     "Linear Regression": LinearRegression(),
     f"Polynomial (deg={deg})": make_pipeline(PolynomialFeatures(deg), LinearRegression()),
-    f"K-NN (k={k})": KNeighborsRegressor(n_neighbors=k),
-    f"Decision Tree (d=4)": DecisionTreeRegressor(max_depth=4),
-    f"Random Forest (50)": RandomForestRegressor(n_estimators=50),
-    "SVR (linear)": make_pipeline(StandardScaler(), SVR(kernel='linear'))
+    f"K-NN (k={k})": KNeighborsRegressor(n_neighbors=k, p=1,weights='distance'),
+    f"Decision Tree (d=3)": DecisionTreeRegressor(criterion='squared_error', max_depth=3, min_samples_split=10),
+    f"Random Forest (100)": RandomForestRegressor(max_depth=8, max_features='log2', min_samples_split= 5, n_estimators=100),
+    "SVR (linear)": make_pipeline(StandardScaler(), SVR(C=1, gamma='scale', epsilon=0.2, kernel='linear'))
 }
 
 
@@ -64,10 +64,13 @@ for name, model in models.items():
     }
 
 # Print results
+print()
 print("Regression Performance Comparison:")
-print("=================================")
 for model, metrics in results.items():
-    print(f"{model}:")
+    print("="*22)
+    print()
+    print(model+ ": ")
     print(f"  Average MSE: {metrics['Average MSE']:.4f}")
-    print(f"  Maximum MSE: {metrics['Max MSE']:.4f}")
     print(f"  Minimum MSE: {metrics['Min MSE']:.4f}")
+    print(f"  Maximum MSE: {metrics['Max MSE']:.4f}")
+    print()
