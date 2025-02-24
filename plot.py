@@ -2,10 +2,10 @@ import matplotlib.pyplot as plt
 
 # Data
 algorithms = ['Linear', 'Polynomial', 'K-NN', 'Decision Tree', 'Random Forest', 'SVR']
-average_mse = [0.0826, 0.5900, 0.538, 0.0149, 0.0167, 0.0836]
+average_mse = [0.0826, 0.5900, 0.538, 0.0149, 0.0167, 0.0602]
 
 # Plot
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(12, 10))
 bars = plt.bar(algorithms, average_mse, color=['blue', 'orange', 'green', 'red', 'purple', 'brown'], alpha=0.8)
 
 # Adding values on top of each bar

@@ -9,7 +9,7 @@ Key Steps:
 3. Report best parameters and cross-validated MSE for each model
 
 Note: Each model is tuned independently using the same training set (80% of data).
-The test set (20%) is reserved for final evaluation (not shown here).
+The test set (20%) is reserved for final evaluation (not used here).
 
 Date: 18th Feb, 2025
 Author: Nevil Patel, 000892482
